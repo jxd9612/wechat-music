@@ -1,0 +1,11 @@
+<view class="container">
+    <view class="container-img">
+        <view></view>
+        <image src="{{ item.picUrl }}" mode="aspectFill"></image>
+    </view>
+    <text>{{ item.name }}</text>
+    <view class="container-playcount">
+        <text class="iconfont icon-bofang"></text>
+        <text>{{ playCount }}</text>
+    </view>
+</view>

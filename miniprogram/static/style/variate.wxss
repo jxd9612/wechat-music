@@ -1,0 +1,33 @@
+page {
+    /* 行为相关颜色 */
+    --color-primary: #007aff;
+    --color-success: #4cd964;
+    --color-warning: #f0ad4e;
+    --color-error: #dd524d;
+
+    /* 文字基本颜色 */
+    --text-base: #333;
+    --text-inverse: #fff;
+    --text-grey: #999;
+    --text-placeholder: #808080;
+    --text-disable: #c0c0c0;
+    --text-icon: #a1a1a1;
+
+    /* 背景颜色 */
+    --bg-base: #ffffff;
+    --bg-grey: #f8f8f8;
+    --bg-black: #1e1e1e;
+    --bg-mask: rgba(0, 0, 0, 0.3);
+
+    /* 边框颜色 */
+    --border-base: #ebebeb;
+
+    /* 文字尺寸 */
+    --font-size-sm-ss: 16rpx;
+    --font-size-sm-s: 20rpx;
+    --font-size-sm: 24rpx;
+    --font-size-base: 28rpx;
+    --font-size-lg: 32rpx;
+    --font-size-lg-l: 36rpx;
+    --font-size-lg-ll: 40rpx;
+}

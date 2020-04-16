@@ -1,0 +1,52 @@
+<van-tabs active="{{ active }}" animated sticky swipeable color="#142334" bind:change="onTabChange">
+    <van-tab title="我的">内容 1</van-tab>
+    <van-tab title="发现">
+        <view class="find">
+            <!-- 轮播 -->
+            <swiper class="find-swiper" autoplay circular bindchange="onSwiperChange">
+                <swiper-item wx:for="{{ banners }}" wx:key="index" class="{{ bannerCur == index ? 'cur' : '' }}">
+                    <view class="swiper-item"><image src="{{ item.imageUrl || item.pic }}" mode="aspectFill"></image></view>
+                </swiper-item>
+            </swiper>
+            <!-- 菜单列表 -->
+            <view class="find-menuList">
+                <view class="find-menuList-item">
+                    <image src="/static/image/meirituijian.png"></image>
+                    <text>每日推荐</text>
+                </view>
+                <view class="find-menuList-item">
+                    <image src="/static/image/musicList.png"></image>
+                    <text>音乐列表</text>
+                </view>
+                <view class="find-menuList-item">
+                    <image src="/static/image/rankingList.png"></image>
+                    <text>排行榜</text>
+                </view>
+                <view class="find-menuList-item">
+                    <image src="/static/image/musicRadio.png"></image>
+                    <text>音乐电台</text>
+                </view>
+                <view class="find-menuList-item">
+                    <image src="/static/image/musicVedeo.png"></image>
+                    <text>音乐视频</text>
+                </view>
+            </view>
+            <!-- 歌单列表 -->
+            <view class="find-songList">
+                <view class="find-songList-head">
+                    <view class="head-title"><text>推荐歌单</text></view>
+                    <view class="head-more">
+                        <text>更多</text>
+                        <text class="iconfont icon-arrowFill-right"></text>
+                    </view>
+                </view>
+                <view class="find-songList-content">
+                    <view wx:for="{{ recSongList }}" wx:key="id" bindtap="toPlayList" data-id="{{ item.id }}">
+                        <song-list item="{{ item }}"></song-list>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </van-tab>
+    <van-tab title="视频">内容 3</van-tab>
+</van-tabs>
