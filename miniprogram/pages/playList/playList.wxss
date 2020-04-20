@@ -1,1 +1,149 @@
-/* miniprogram/pages/playList/playList.wxss */
+.container {
+}
+/* 背景遮罩 */
+.container-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.container-mask > view {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.container-mask > image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(15rpx);
+    transform: scale(1.2);
+    z-index: -1;
+}
+
+/* 头部显示部分 */
+.container-header {
+    width: 700rpx;
+    height: 250rpx;
+    margin: 20rpx auto;
+    position: relative;
+    display: flex;
+    color: var(--text-inverse);
+}
+.header-img {
+    width: 250rpx;
+    margin-right: 30rpx;
+}
+.header-img > image {
+    width: 100%;
+    height: 100%;
+    border-radius: 10rpx;
+}
+.header-content {
+    width: 420rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.header-content-name {
+    font-weight: bold;
+    font-size: var(--font-size-lg-ll);
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.header-content-creator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-base);
+}
+.header-content-creator-active {
+    filter: blur(3rpx);
+    transform: translate(3rpx, 3rpx);
+}
+.header-content-creator > view {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-content-creator > view > image {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    margin-right: 15rpx;
+}
+.header-content-creator > text {
+    font-size: var(--font-size-base);
+}
+.header-content-desc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--font-size-sm);
+}
+.header-content-desc-active {
+    filter: blur(3rpx);
+    transform: translate(3rpx, 3rpx);
+}
+.header-content-desc > text:first-child {
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.header-content-desc > text:last-child {
+    font-size: var(--font-size-base);
+}
+
+/* 歌曲列表 */
+.container-content {
+    margin-top: 36rpx;
+    width: 100%;
+    color: var(--text-inverse);
+    position: relative;
+}
+.content-option {
+    padding: 0 40rpx;
+    margin-bottom: 30rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.content-option > view {
+    display: flex;
+    align-items: center;
+}
+.content-option-play > text {
+    font-size: var(--font-size-lg);
+}
+.content-option-play > text:first-child {
+    padding-right: 15rpx;
+    font-weight: bold;
+}
+.content-option-play > text:last-child {
+    padding-left: 5rpx;
+    opacity: 0.7;
+}
+.content-option-collect {
+    background-color: #1cbbb4;
+    border-radius: 40rpx;
+    padding: 20rpx;
+}
+.content-option-collect-active {
+    opacity: 0.7;
+    transform: translate(1rpx, 1rpx);
+}
+.content-option-collect > text {
+    font-size: var(--font-size-base);
+}
+.content-option-collect > text:first-child {
+    padding-right: 10rpx;
+}

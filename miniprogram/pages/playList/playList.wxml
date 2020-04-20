@@ -1,2 +1,41 @@
-<!--miniprogram/pages/playList/playList.wxml-->
-<text>miniprogram/pages/playList/playList.wxml</text>
+<view class="container" wx:if="{{ isLoading }}">
+    <!-- 遮罩背景 -->
+    <view class="container-mask">
+        <view></view>
+        <image src="{{ playlist.coverImgUrl }}" mode="aspectFill"></image>
+    </view>
+    <!-- 头部显示部分 -->
+    <view class="container-header">
+        <view class="header-img"><image src="{{ playlist.coverImgUrl }}" mode="aspectFill"></image></view>
+        <view class="header-content">
+            <view class="header-content-name">{{ playlist.name }}</view>
+            <view class="header-content-creator" hover-class="header-content-creator-active">
+                <view>
+                    <image src="{{ playlist.creator.avatarUrl }}" mode="aspectFill"></image>
+                    <text>{{ playlist.creator.nickname }}</text>
+                </view>
+                <text class="iconfont icon-arrow-right"></text>
+            </view>
+            <view class="header-content-desc" hover-class="header-content-desc-active">
+                <text>{{ playlist.description }}</text>
+                <text class="iconfont icon-arrow-right"></text>
+            </view>
+        </view>
+    </view>
+    <!-- 歌曲列表 -->
+    <view class="container-content">
+        <view class="content-option">
+            <view class="content-option-play">
+                <text class="iconfont icon-bofang"></text>
+                <text>播放全部</text>
+                <text>(共{{ playlist.trackCount }}首)</text>
+            </view>
+            <view class="content-option-collect" hover-class="content-option-collect-active">
+                <text class="iconfont icon-add"></text>
+                <text>收藏({{ subscribedCount }})</text>
+            </view>
+        </view>
+
+        <!-- <play-list></play-list> -->
+    </view>
+</view>

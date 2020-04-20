@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" hover-class="container-active">
     <view class="container-img">
         <view></view>
         <image src="{{ item.picUrl }}" mode="aspectFill"></image>

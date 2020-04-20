@@ -10,23 +10,23 @@
             </swiper>
             <!-- 菜单列表 -->
             <view class="find-menuList">
-                <view class="find-menuList-item">
+                <view class="find-menuList-item" hover-class="find-menuList-item-active">
                     <image src="/static/image/meirituijian.png"></image>
                     <text>每日推荐</text>
                 </view>
-                <view class="find-menuList-item">
+                <view class="find-menuList-item" hover-class="find-menuList-item-active">
                     <image src="/static/image/musicList.png"></image>
                     <text>音乐列表</text>
                 </view>
-                <view class="find-menuList-item">
+                <view class="find-menuList-item" hover-class="find-menuList-item-active">
                     <image src="/static/image/rankingList.png"></image>
                     <text>排行榜</text>
                 </view>
-                <view class="find-menuList-item">
+                <view class="find-menuList-item" hover-class="find-menuList-item-active">
                     <image src="/static/image/musicRadio.png"></image>
                     <text>音乐电台</text>
                 </view>
-                <view class="find-menuList-item">
+                <view class="find-menuList-item" hover-class="find-menuList-item-active">
                     <image src="/static/image/musicVedeo.png"></image>
                     <text>音乐视频</text>
                 </view>
@@ -35,7 +35,7 @@
             <view class="find-songList">
                 <view class="find-songList-head">
                     <view class="head-title"><text>推荐歌单</text></view>
-                    <view class="head-more">
+                    <view class="head-more" hover-class="head-more-active">
                         <text>更多</text>
                         <text class="iconfont icon-arrowFill-right"></text>
                     </view>

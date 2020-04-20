@@ -49,7 +49,7 @@ Page({
         }
         if (util.tools.isEmpty(this.data.recSongList)) {
             let reqData = { limit: 6 };
-            util.request.get(api.getPersonalized, reqData).then(res => {
+            util.request.get(api.getRecSongList, reqData).then(res => {
                 this.setData({ recSongList: res.result });
             });
         }

@@ -10,5 +10,11 @@ module.exports = {
      * 获取推荐歌单
      * limit: 取出数量 , 默认为 30 (不支持 offset)
      */
-    getPersonalized: ApiRootUrl + 'personalized',
+    getRecSongList: ApiRootUrl + 'personalized',
+    /**
+     * 获取歌单详情
+     * id(必选): 歌单 id
+     * s: 歌单最近的 s 个收藏者
+     */
+    getSongListDetail: ApiRootUrl + 'playlist/detail',
 };

@@ -13,6 +13,7 @@
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
+		"uglifyFileName": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": false,
 		"uploadWithSourceMap": true,
@@ -21,8 +22,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"bundle": false,
-		"uglifyFileName": false
+		"bundle": false
 	},
 	"appid": "wx61af54b6e38eeb02",
 	"projectname": "my-music",

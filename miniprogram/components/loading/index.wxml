@@ -1,0 +1,14 @@
+<view class="loading-wrapper">
+    <ul class="reflect-loading">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</view>

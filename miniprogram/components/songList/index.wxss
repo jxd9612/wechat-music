@@ -9,7 +9,7 @@
     text-align: center;
     margin: 0 10rpx 35rpx 10rpx;
 }
-.container:active {
+.container-active {
     opacity: 0.7;
     transform: translate(1rpx, 1rpx);
 }
