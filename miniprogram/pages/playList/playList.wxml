@@ -36,6 +36,6 @@
             </view>
         </view>
 
-        <!-- <play-list></play-list> -->
+        <play-list></play-list>
     </view>
 </view>
