@@ -1,0 +1,79 @@
+@import '../../static/font/iconfont.wxss';
+
+.container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--text-inverse);
+    padding: 15rpx 0;
+}
+.container-active {
+    opacity: 0.7;
+    transform: translate(1rpx, 1rpx);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.container > text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--font-size-lg-l);
+}
+
+/* 歌曲索引 */
+.container-index {
+    width: 120rpx;
+    text-align: center;
+}
+.container-index > text {
+    font-size: var(--font-size-lg-l);
+}
+
+/* 歌曲内容 */
+.container-detail {
+    height: 80rpx;
+    width: 450rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.detail-name > text {
+    font-size: var(--font-size-base);
+}
+.detail-name > text:nth-child(1) {
+    padding-right: 10rpx;
+}
+.detail-name > text:nth-child(2) {
+    opacity: 0.7;
+}
+.detail-desc {
+    display: flex;
+    align-items: center;
+}
+.detail-desc > text {
+    font-size: var(--font-size-sm-ss);
+    margin-right: 10rpx;
+}
+.detail-desc > text:nth-child(1) {
+    padding: 0 5rpx;
+    border-radius: 5rpx;
+    border: 2rpx solid #f37b1d;
+    color: #f37b1d;
+}
+.detail-desc > text:nth-child(2) {
+    padding: 0 5rpx;
+    border-radius: 5rpx;
+    border: 2rpx solid #dd524d;
+    color: #dd524d;
+}
+.detail-desc > text:nth-child(3) {
+    padding: 0 5rpx;
+    border-radius: 5rpx;
+    border: 2rpx solid #f37b1d;
+    color: #f37b1d;
+}
+.detail-desc > text:nth-child(4) {
+    font-size: var(--font-size-sm);
+    opacity: 0.7;
+}

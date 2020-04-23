@@ -1,5 +1,22 @@
-<view class="container">
-    <!-- <slot name="index">1</slot> -->
-    <view>1</view>
-    <view class="container-content"></view>
+<view class="container" hover-class="container-active">
+    <block>
+        <view class="container-index" wx:if="{{ songId === item.id && playStatus === 2 }}"><text class="iconfont icon-bofang1"></text></view>
+        <view class="container-index" wx:elif="{{ songId === item.id && playStatus === 1 }}"><text class="iconfont icon-zanting"></text></view>
+        <view class="container-index" wx:else>{{ index + 1 }}</view>
+    </block>
+    <view class="container-detail">
+        <view class="detail-name">
+            <text>{{ item.name }}</text>
+            <!-- 处理歌曲描述 -->
+            <text>{{ desc }}</text>
+        </view>
+        <view class="detail-desc">
+            <text hidden="{{ true }}">会员</text>
+            <text hidden="{{ item.copyright !== 0 }}">独家</text>
+            <text hidden="{{ true }}">无损</text>
+            <text>{{ item.ar[0].name }} - {{ item.al.name }}</text>
+        </view>
+    </view>
+    <text class="iconfont icon-shipinbofang" style="right: 100rpx;" hidden="{{ item.mv === 0 }}"></text>
+    <text class="iconfont icon-liebiao" style="right: 30rpx;"></text>
 </view>
