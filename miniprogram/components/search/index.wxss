@@ -1,0 +1,51 @@
+@import '../../static/font/iconfont.wxss';
+
+.container {
+    position: relative;
+    padding: 10rpx 30rpx;
+    background-color: var(--bg-base);
+}
+.container-search {
+    border-radius: 30rpx;
+    background-color: var(--bg-grey);
+}
+.container-search {
+    padding: 0 20rpx;
+    display: flex;
+    align-items: center;
+}
+.container-search > text {
+    font-size: var(--font-size-lg-l);
+    margin-right: 10rpx;
+}
+.container-search > input {
+    height: 60rpx;
+    flex: 1 0;
+}
+
+.container-intro {
+    position: absolute;
+    top: 100%;
+    left: 3%;
+    width: 94%;
+    box-sizing: border-box;
+    padding: 10rpx 20rpx;
+    background-color: var(--bg-base);
+    z-index: 999;
+}
+
+.intro-head {
+    padding-left: 10rpx;
+    margin-bottom: 20rpx;
+    color: steelblue;
+}
+
+.intro-item {
+    padding: 20rpx 0;
+    border-top: 3rpx solid var(--bg-grey);
+    color: var(--text-grey);
+}
+
+.intro-item > text:first-child {
+    margin-right: 20rpx;
+}

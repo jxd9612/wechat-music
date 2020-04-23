@@ -1,0 +1,17 @@
+<view class="container">
+    <view class="container-search">
+        <text class="iconfont icon-search"></text>
+        <input disabled="{{ disabled }}" value="{{ value }}" placeholder="{{ placeholder }}" bindinput="inputChange" bindblur="inputBlur"></input>
+    </view>
+    <view wx:if="{{ item.length !== 0 }}" class="container-intro">
+        <view class="intro-head">
+            <text>搜索“{{ value }}”</text>
+        </view>
+        <block wx:for="{{ item }}" wx:key="index">
+            <view class="intro-item" bindtap="search" data-keyword="{{ item.keyword }}">
+                <text class="iconfont icon-search"></text>
+                <text>{{ item.keyword }}</text>
+            </view>
+        </block>
+    </view>
+</view>
