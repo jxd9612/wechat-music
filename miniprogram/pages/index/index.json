@@ -2,6 +2,7 @@
     "usingComponents": {
         "van-tab": "@vant/weapp/tab/index",
         "van-tabs": "@vant/weapp/tabs/index",
-        "song-list": "../components/songList/index"
+        "song-list": "../components/songList/index",
+        "search": "../components/search/index"
     }
 }

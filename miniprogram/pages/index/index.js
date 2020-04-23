@@ -13,7 +13,7 @@ Page({
     onLoad() {
         this.init();
     },
-    // 初始化操作
+
     init() {
         switch (this.data.active) {
             case 0:
@@ -28,13 +28,11 @@ Page({
         }
     },
 
-    // 切换标签触发
     onTabChange(ev) {
         this.setData({ active: ev.detail.name });
         this.init();
     },
 
-    // 轮播切换
     onSwiperChange(ev) {
         this.setData({ bannerCur: ev.detail.current });
     },
@@ -55,8 +53,13 @@ Page({
         }
     },
 
-    // 歌单跳转
+    // 跳转至歌单页面
     toPlayList: util.tools.throttle(function (ev) {
         util.router.navigateTo('playList', { id: ev.currentTarget.dataset.id });
+    }, 1500),
+
+    // 跳转至搜索页面
+    toSearch: util.tools.throttle(function () {
+        util.router.navigateTo('search');
     }, 1500),
 });

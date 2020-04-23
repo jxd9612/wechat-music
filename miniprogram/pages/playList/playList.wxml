@@ -35,7 +35,8 @@
                 <text>收藏({{ subscribedCount }})</text>
             </view>
         </view>
-
-        <play-list></play-list>
+        <block wx:for="{{ playlist.tracks }}" wx:key="index">
+            <play-list item="{{ item }}" index="{{ index }}" playStatus="{{ playStatus }}" songId="{{ songId }}" data-index="{{ index }}" bindtap="songClick"></play-list>
+        </block>
     </view>
 </view>

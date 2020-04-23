@@ -14,5 +14,8 @@ App({
         }
     },
 
-    globalData: {},
+    globalData: {
+        playStatus: 0, // 音乐播放状态，0-停止 | 1-播放 | 2-暂停
+        songId: 0, // 当前播放歌曲的 Id
+    },
 });

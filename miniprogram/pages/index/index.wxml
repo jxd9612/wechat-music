@@ -1,6 +1,8 @@
 <van-tabs active="{{ active }}" animated sticky swipeable color="#142334" bind:change="onTabChange">
     <van-tab title="我的">内容 1</van-tab>
     <van-tab title="发现">
+        <!-- <van-search placeholder="请输入搜索关键词" readonly bindtap="toSearch"></van-search> -->
+        <search disabled bindtap="toSearch"></search>
         <view class="find">
             <!-- 轮播 -->
             <swiper class="find-swiper" autoplay circular bindchange="onSwiperChange">

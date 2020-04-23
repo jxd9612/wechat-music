@@ -1,5 +1,5 @@
 {
-    "pages": ["pages/index/index", "pages/playList/playList"],
+    "pages": ["pages/index/index", "pages/search/search", "pages/playList/playList"],
     "window": {
         "backgroundColor": "#fff",
         "backgroundTextStyle": "light",
@@ -8,5 +8,6 @@
         "navigationBarTextStyle": "black"
     },
     "usingComponents": {},
-    "sitemapLocation": "sitemap.json"
+    "sitemapLocation": "sitemap.json",
+    "requiredBackgroundModes": ["audio"]
 }
