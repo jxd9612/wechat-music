@@ -1,10 +1,12 @@
-@import '../../static/font/iconfont.wxss';
+@import '../../app.wxss';
 
 .container {
     position: relative;
     padding: 10rpx 30rpx;
     background-color: var(--bg-base);
 }
+
+/* 搜索框 */
 .container-search {
     border-radius: 30rpx;
     background-color: var(--bg-grey);
@@ -23,29 +25,28 @@
     flex: 1 0;
 }
 
+/* 搜索简介 */
 .container-intro {
     position: absolute;
     top: 100%;
     left: 3%;
     width: 94%;
     box-sizing: border-box;
-    padding: 10rpx 20rpx;
+    box-shadow: 0rpx 3rpx 10rpx rgba(0, 0, 0, 0.3);
+    padding: 20rpx;
     background-color: var(--bg-base);
     z-index: 999;
 }
-
 .intro-head {
     padding-left: 10rpx;
     margin-bottom: 20rpx;
     color: steelblue;
 }
-
 .intro-item {
     padding: 20rpx 0;
     border-top: 3rpx solid var(--bg-grey);
     color: var(--text-grey);
 }
-
 .intro-item > text:first-child {
     margin-right: 20rpx;
 }

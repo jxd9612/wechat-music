@@ -5,7 +5,9 @@
         <text>历史记录</text>
         <view class="history-wrap">
             <block wx:for="{{ history }}" wx:key="index">
-                <text>{{ item }}</text>
+                <view hover-class="hover-active" hover-start-time="0" hover-stay-time="100">
+                    <text>{{ item }}</text>
+                </view>
             </block>
         </view>
     </view>
@@ -13,7 +15,7 @@
     <view class="container-hot">
         <text>热搜榜</text>
         <block wx:for="{{ searchHot }}" wx:key="index">
-            <view class="hot-wrap">
+            <view class="hot-wrap" hover-class="hover-active" hover-start-time="0" hover-stay-time="100">
                 <view class="hot-index" style="color: {{ index < 3 ? 'red' : '' }};">{{ index + 1 }}</view>
                 <view class="hot-content">
                     <view class="hot-content-left">

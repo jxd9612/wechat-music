@@ -8,7 +8,7 @@
             <text>搜索“{{ value }}”</text>
         </view>
         <block wx:for="{{ item }}" wx:key="index">
-            <view class="intro-item" bindtap="search" data-keyword="{{ item.keyword }}">
+            <view class="intro-item" hover-class="hover-active" hover-start-time="0" hover-stay-time="100" bindtap="search" data-keyword="{{ item.keyword }}">
                 <text class="iconfont icon-search"></text>
                 <text>{{ item.keyword }}</text>
             </view>

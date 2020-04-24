@@ -10,7 +10,7 @@
     flex-wrap: wrap;
     padding-top: 10rpx;
 }
-.history-wrap > text {
+.history-wrap > view {
     display: inline-block;
     padding: 10rpx;
     margin: 10rpx;

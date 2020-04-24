@@ -1,2 +1,12 @@
 @import 'static/font/iconfont.wxss';
 @import 'static/style/variate.wxss';
+
+.hover-active {
+    opacity: 0.7;
+    transform: translate(1rpx, 1rpx);
+}
+
+.hover-active-blur {
+    filter: blur(3rpx);
+    transform: translate(1rpx, 1rpx);
+}

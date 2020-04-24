@@ -1,4 +1,4 @@
-<view class="container" hover-class="container-active">
+<view class="container" hover-class="hover-active" hover-start-time="0" hover-stay-time="100">
     <block>
         <view class="container-index" wx:if="{{ songId === item.id && playStatus === 2 }}"><text class="iconfont icon-bofang1"></text></view>
         <view class="container-index" wx:elif="{{ songId === item.id && playStatus === 1 }}"><text class="iconfont icon-zanting"></text></view>

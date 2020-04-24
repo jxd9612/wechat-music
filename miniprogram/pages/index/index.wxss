@@ -48,10 +48,6 @@
     flex-direction: column;
     align-items: center;
 }
-.find-menuList-item-active {
-    opacity: 0.7;
-    transform: translate(1rpx, 1rpx);
-}
 .find-menuList-item > image {
     width: 80rpx;
     height: 80rpx;
@@ -81,10 +77,6 @@
     display: flex;
     align-items: center;
     color: var(--text-grey);
-}
-.head-more-active {
-    opacity: 0.7;
-    transform: translate(1rpx, 1rpx);
 }
 .head-more > text {
     font-size: var(--font-size-sm);

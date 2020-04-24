@@ -1,4 +1,8 @@
+const computedBehavior = require('miniprogram-computed');
+
 Component({
+    behaviors: [computedBehavior],
+
     // 组件的属性列表
     properties: {
         placeholder: {
