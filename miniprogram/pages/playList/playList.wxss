@@ -64,10 +64,6 @@
     align-items: center;
     font-size: var(--font-size-base);
 }
-.header-content-creator-active {
-    filter: blur(3rpx);
-    transform: translate(3rpx, 3rpx);
-}
 .header-content-creator > view {
     display: flex;
     align-items: center;
@@ -87,10 +83,6 @@
     align-items: center;
     justify-content: space-between;
     font-size: var(--font-size-sm);
-}
-.header-content-desc-active {
-    filter: blur(3rpx);
-    transform: translate(3rpx, 3rpx);
 }
 .header-content-desc > text:first-child {
     text-overflow: -o-ellipsis-lastline;
@@ -136,10 +128,6 @@
     background-color: #1cbbb4;
     border-radius: 40rpx;
     padding: 20rpx;
-}
-.content-option-collect-active {
-    opacity: 0.7;
-    transform: translate(1rpx, 1rpx);
 }
 .content-option-collect > text {
     font-size: var(--font-size-base);

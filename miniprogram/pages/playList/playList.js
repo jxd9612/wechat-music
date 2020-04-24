@@ -1,16 +1,17 @@
 const app = getApp();
 const util = require('../../utils/index');
 const api = require('../../config/api');
+const musicManage = wx.getBackgroundAudioManager();
 
 Page({
     data: {
         id: '', // 歌单 id
         playlist: {}, // 歌单详细
+        pagingData: {}, // 歌曲分页数据
         isLoading: false, // 数据加载时，隐藏页面用
         subscribedCount: '', // 收藏数量
         songId: 0, // 当前歌曲的 Id
         playStatus: 0, // 当前歌曲播放状态
-        playUrl: '', // 歌曲播放地址
     },
 
     onLoad(options) {
@@ -23,19 +24,26 @@ Page({
         this.watchMusicStatus();
     },
 
+    onReachBottom() {
+        let oldPagingData = this.data.pagingData;
+        let newPagingData = util.tools.getPagingData(oldPagingData.page + 1, oldPagingData.pageSize, this.data.playlist.tracks);
+        if (oldPagingData.page === newPagingData.page) return;
+        util.wx.showLoading();
+        newPagingData.data = oldPagingData.data.concat(newPagingData.data);
+        this.setData({ pagingData: newPagingData });
+        util.wx.hideLoading();
+    },
+
     watchMusicStatus() {
-        // 监听音乐播放
-        wx.onBackgroundAudioPlay(() => {
+        musicManage.onPlay(() => {
             app.globalData.playStatus = 1;
             this.setData({ playStatus: app.globalData.playStatus });
         });
-        // 监听音乐暂停
-        wx.onBackgroundAudioPause(() => {
+        musicManage.onPause(() => {
             app.globalData.playStatus = 2;
             this.setData({ playStatus: app.globalData.playStatus });
         });
-        // 监听音乐停止
-        wx.onBackgroundAudioStop(() => {
+        musicManage.onStop(() => {
             app.globalData.playStatus = 0;
             this.setData({ playStatus: app.globalData.playStatus });
         });
@@ -54,6 +62,7 @@ Page({
             .then(res => {
                 this.setData({
                     playlist: res.playlist,
+                    pagingData: util.tools.getPagingData(1, 20, res.playlist.tracks),
                     subscribedCount: this.dealSubscribedCount(res.playlist.subscribedCount),
                 });
             })
@@ -66,19 +75,16 @@ Page({
     songClick(ev) {
         let songId = this.data.playlist.tracks[ev.currentTarget.dataset.index].id;
         if (app.globalData.playStatus !== 0 && app.globalData.songId === songId) {
-            if (app.globalData.playStatus === 1) wx.pauseBackgroundAudio();
-            if (app.globalData.playStatus === 2) wx.playBackgroundAudio();
+            if (app.globalData.playStatus === 1) musicManage.pause();
+            if (app.globalData.playStatus === 2) musicManage.play();
             return;
         } else {
             app.globalData.songId = songId;
             this.setData({ songId: songId });
             let reqData = { id: songId };
             util.request.get(api.getSong, reqData).then(res => {
-                this.setData({ playUrl: res.data[0].url });
-                wx.playBackgroundAudio({
-                    dataUrl: res.data[0].url,
-                    title: this.data.playlist.tracks[ev.currentTarget.dataset.index].name,
-                });
+                musicManage.src = res.data[0].url;
+                musicManage.title = this.data.playlist.tracks[ev.currentTarget.dataset.index].name;
             });
         }
     },

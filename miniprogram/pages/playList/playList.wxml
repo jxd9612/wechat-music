@@ -9,14 +9,14 @@
         <view class="header-img"><image src="{{ playlist.coverImgUrl }}" mode="aspectFill"></image></view>
         <view class="header-content">
             <view class="header-content-name">{{ playlist.name }}</view>
-            <view class="header-content-creator" hover-class="header-content-creator-active">
+            <view class="header-content-creator" hover-class="hover-active-blur" hover-start-time="0" hover-stay-time="100">
                 <view>
                     <image src="{{ playlist.creator.avatarUrl }}" mode="aspectFill"></image>
                     <text>{{ playlist.creator.nickname }}</text>
                 </view>
                 <text class="iconfont icon-arrow-right"></text>
             </view>
-            <view class="header-content-desc" hover-class="header-content-desc-active">
+            <view class="header-content-desc" hover-class="hover-active-blur" hover-start-time="0" hover-stay-time="100">
                 <text>{{ playlist.description }}</text>
                 <text class="iconfont icon-arrow-right"></text>
             </view>
@@ -30,12 +30,12 @@
                 <text>播放全部</text>
                 <text>(共{{ playlist.trackCount }}首)</text>
             </view>
-            <view class="content-option-collect" hover-class="content-option-collect-active">
+            <view class="content-option-collect" hover-class="hover-active" hover-start-time="0" hover-stay-time="100">
                 <text class="iconfont icon-add"></text>
                 <text>收藏({{ subscribedCount }})</text>
             </view>
         </view>
-        <block wx:for="{{ playlist.tracks }}" wx:key="index">
+        <block wx:for="{{ pagingData.data }}" wx:key="index">
             <play-list item="{{ item }}" index="{{ index }}" playStatus="{{ playStatus }}" songId="{{ songId }}" data-index="{{ index }}" bindtap="songClick"></play-list>
         </block>
     </view>
