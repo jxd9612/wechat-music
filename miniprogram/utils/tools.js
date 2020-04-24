@@ -42,8 +42,46 @@ const throttle = (func, wait) => {
     };
 };
 
+// 分页
+const getPagingData = (page = 1, pageSize = 20, totalData = []) => {
+    const { length } = totalData;
+    const pagingData = {
+        data: [],
+        page,
+        pageSize,
+        length,
+    };
+    if (pageSize >= length) {
+        pagingData.data = totalData;
+        pagingData.page = 1;
+    } else {
+        const num = pageSize * (page - 1);
+        if (num < length) {
+            const startIndex = num;
+            const endIndex = num + pageSize - 1;
+            //当前页数据条数小于每页最大条数时，也按最大条数范围筛取数据
+            pagingData.data = totalData.filter((_, index) => index >= startIndex && index <= endIndex);
+        } else {
+            //当前页码超出最大页码，则计算实际最后一页的page，自动返回最后一页数据
+            const size = parseInt(length / pageSize);
+            const rest = length % pageSize;
+            if (rest > 0) {
+                //余数大于0，说明实际最后一页数据不足pageSize，应该取size+1为最后一条的页码
+                pagingData.page = size + 1;
+                pagingData.data = totalData.filter((_, index) => index >= pageSize * size && index <= length);
+            } else if (rest === 0) {
+                //余数等于0，最后一页数据条数正好是pageSize
+                pagingData.page = size;
+                pagingData.data = totalData.filter((_, index) => index >= pageSize * (size - 1) && index <= length);
+            }
+        }
+    }
+    return pagingData;
+};
+
 module.exports = {
     isEmpty,
     debounce,
     throttle,
+    getPagingData,
 };
