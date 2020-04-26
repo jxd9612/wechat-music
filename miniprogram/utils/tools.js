@@ -79,9 +79,35 @@ const getPagingData = (page = 1, pageSize = 20, totalData = []) => {
     return pagingData;
 };
 
+// 解析歌词
+const parseLyric = text => {
+    let result = [];
+    let lines = text.split('\n');
+    let pattern = /\[\d{2}:\d{2}.\d{2,3}\]/g;
+    //去掉不含时间的行
+    while (!pattern.test(lines[0])) {
+        lines = lines.slice(1);
+    }
+    //上面用'\n'生成数组时，结果中最后一个为空元素，这里将去掉
+    lines[lines.length - 1].length === 0 && lines.pop();
+    lines.forEach((v, i, a) => {
+        let time = v.match(pattern);
+        let value = v.replace(pattern, '');
+        time.forEach((v1, i1, a1) => {
+            let t = v1.slice(1, -1).split(':');
+            result.push([parseInt(t[0], 10) * 60 + parseFloat(t[1]), value]);
+        });
+    });
+    result.sort((a, b) => {
+        return a[0] - b[0];
+    });
+    return result;
+};
+
 module.exports = {
     isEmpty,
     debounce,
     throttle,
     getPagingData,
+    parseLyric,
 };
