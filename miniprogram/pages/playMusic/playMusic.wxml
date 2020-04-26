@@ -1,0 +1,20 @@
+<view class="container">
+    <!-- 遮罩背景 -->
+    <view class="container-mask">
+        <view></view>
+        <image src="{{ songDetail.songPic }}" mode="aspectFill"></image>
+    </view>
+
+    <!-- 歌曲图片 -->
+    <view class="container-content">
+        <view class="content-pic"><image src="{{ songDetail.songPic }}" mode="aspectFill"></image></view>
+        <text class="content-ar">{{ songDetail.songName }} - {{ songDetail.songAr }}</text>
+        <scroll-view scroll-y scroll-with-animation="true" scroll-top="{{ marginTop }}">
+            <view class="content-lyric">
+                <block wx:for="{{ lyric }}" wx:key="item">
+                    <view class="{{ currentIndex == index ? 'currentTime' : '' }}">{{ item[1] }}</view>
+                </block>
+            </view>
+        </scroll-view>
+    </view>
+</view>
