@@ -16,7 +16,7 @@
                 </view>
                 <text class="iconfont icon-arrow-right"></text>
             </view>
-            <view class="header-content-desc" hover-class="hover-active-blur" hover-start-time="0" hover-stay-time="100">
+            <view class="header-content-desc" hover-class="hover-active-blur" hover-start-time="0" hover-stay-time="100" bindtap="showDesc">
                 <text>{{ playlist.description }}</text>
                 <text class="iconfont icon-arrow-right"></text>
             </view>
@@ -35,8 +35,8 @@
                 <text>收藏({{ subscribedCount }})</text>
             </view>
         </view>
-        <block wx:for="{{ pagingData.data }}" wx:key="index">
-            <play-list item="{{ item }}" index="{{ index }}" playStatus="{{ playStatus }}" songId="{{ songId }}" data-index="{{ index }}" bindtap="songClick"></play-list>
+        <block wx:for="{{ pagingData.data }}" wx:key="id">
+            <play-list item="{{ item }}" index="{{ index }}" songId="{{ songId }}" data-id="{{ item.id }}" bindtap="songClick"></play-list>
         </block>
     </view>
 </view>

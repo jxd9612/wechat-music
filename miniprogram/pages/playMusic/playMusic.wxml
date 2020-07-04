@@ -7,7 +7,14 @@
 
     <!-- 歌曲图片 -->
     <view class="container-content">
-        <view class="content-pic"><image src="{{ songDetail.songPic }}" mode="aspectFill"></image></view>
+        <view class="content-pic">
+            <view class="pic-mask"></view>
+            <block>
+                <text wx:if="{{ playStatus === 1 }}" class="iconfont icon-bofang1" bindtap="btnClick"></text>
+                <text wx:else class="iconfont icon-zanting" bindtap="btnClick"></text>
+            </block>
+            <image class="{{ playStatus === 1 ? 'move' : '' }}" src="{{ songDetail.songPic }}" mode="aspectFill"></image>
+        </view>
         <text class="content-ar">{{ songDetail.songName }} - {{ songDetail.songAr }}</text>
         <scroll-view scroll-y scroll-with-animation="true" scroll-top="{{ marginTop }}">
             <view class="content-lyric">

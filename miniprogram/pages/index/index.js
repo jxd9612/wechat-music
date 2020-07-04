@@ -4,7 +4,6 @@ const api = require('../../config/api');
 
 Page({
     data: {
-        active: 1, // 0-我的，1-发现，2-视频
         banners: [], // 轮播图
         bannerCur: 0, // 轮播当前图片索引
         recSongList: [], // 推荐歌单列表
@@ -15,22 +14,7 @@ Page({
     },
 
     init() {
-        switch (this.data.active) {
-            case 0:
-                console.log('我的页面');
-                break;
-            case 1:
-                this.handleFind();
-                break;
-            case 2:
-                console.log('视频页面');
-                break;
-        }
-    },
-
-    onTabChange(ev) {
-        this.setData({ active: ev.detail.name });
-        this.init();
+        this.handleFind();
     },
 
     onSwiperChange(ev) {

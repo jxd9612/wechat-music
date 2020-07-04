@@ -34,27 +34,35 @@
     color: var(--text-inverse);
 }
 .content-pic {
-    width: 400rpx;
-    height: 400rpx;
+    width: 360rpx;
+    height: 360rpx;
+    /* height: 200px; */
     margin: 100rpx 0;
     padding: 5rpx;
     background-color: #050505;
     box-shadow: 0 0 0 20rpx #1f1f1f, 0 0 0 40rpx #1c1c1c, 0 0 0 60rpx #171717, 0 0 0 80rpx #0f0f0f;
     border-radius: 50%;
+    position: relative;
+}
+.pic-mask {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.content-pic > text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-inverse);
+    font-size: 100rpx;
 }
 .content-pic > image {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    animation: rotate 10s linear infinite;
-}
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
 }
 
 .content-ar {
@@ -64,8 +72,8 @@
 
 .content-lyric {
     text-align: center;
-    height: 330rpx;
-    font-size: var(--font-size-sm);
+    height: 165px;
+    font-size: var(--font-size-base-px);
     color: #d5d5d5;
     line-height: 2;
 }

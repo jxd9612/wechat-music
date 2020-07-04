@@ -5,16 +5,17 @@ const api = require('../../config/api');
 Page({
     data: {
         allMatch: [], // 搜索建议
+        searchVal: '', // 搜索关键字
         searchHot: [], // 热搜榜
         history: [], // 历史记录
     },
 
     onLoad() {
+        this.setData({ history: wx.getStorageSync('keywordList') });
         this.init();
     },
 
     init() {
-        this.setData({ history: wx.getStorageSync('keywordList') });
         this.handleSearchHot();
     },
 
@@ -43,7 +44,9 @@ Page({
     ),
 
     search(ev) {
-        let reqData = { keywords: ev.detail };
+        let keyword = ev.currentTarget.dataset.keyword || ev.detail;
+        this.setData({ searchVal: keyword });
+        let reqData = { keywords: keyword };
         util.request
             .get(api.search, reqData)
             .then(res => {
@@ -51,9 +54,10 @@ Page({
             })
             .finally(() => {
                 let keywordList = wx.getStorageSync('keywordList') || [];
-                if (keywordList.length >= 10) keywordList.pop();
-                keywordList.unshift(ev.detail);
+                if (keywordList.length > 10) keywordList.pop();
+                keywordList.unshift(keyword);
                 wx.setStorageSync('keywordList', [...new Set(keywordList)]);
+                this.setData({ history: wx.getStorageSync('keywordList') });
             });
     },
 });
