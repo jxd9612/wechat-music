@@ -30,4 +30,7 @@ page {
     --font-size-lg: 32rpx;
     --font-size-lg-l: 36rpx;
     --font-size-lg-ll: 40rpx;
+
+    /* px */
+    --font-size-base-px: 14px;
 }

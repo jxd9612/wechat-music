@@ -1,9 +1,9 @@
 <view class="container">
     <view class="container-search">
         <text class="iconfont icon-search"></text>
-        <input disabled="{{ disabled }}" value="{{ value }}" placeholder="{{ placeholder }}" bindinput="inputChange" bindblur="inputBlur"></input>
+        <input disabled="{{ disabled }}" value="{{ value }}" placeholder="{{ placeholder }}" bindinput="inputChange" bindblur="inputBlur" bindfocus="inputFocus"></input>
     </view>
-    <view wx:if="{{ item.length !== 0 }}" class="container-intro">
+    <view hidden="{{ flag }}" class="container-intro">
         <view class="intro-head">
             <text>搜索“{{ value }}”</text>
         </view>

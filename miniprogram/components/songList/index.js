@@ -18,16 +18,18 @@ Component({
 
     watch: {
         item(val) {
-            if (val) this.setData({ playCount: this.dealPlayCount(val.playCount) });
+            if (val)
+                this.setData({
+                    playCount:
+                        val.playCount >= 10000 && val.playCount < 100000000
+                            ? (val.playCount / 10000).toFixed(2) + '万'
+                            : val.playCount >= 100000000
+                            ? (val.playCount / 100000000).toFixed(2) + '亿'
+                            : val.playCount + '',
+                });
         },
     },
 
     // 组件的方法列表
-    methods: {
-        dealPlayCount(count) {
-            if (count >= 10000 && count < 100000000) return (count / 10000).toFixed(2) + '万';
-            else if (count >= 100000000) return (count / 100000000).toFixed(2) + '亿';
-            else return count + '';
-        },
-    },
+    methods: {},
 });

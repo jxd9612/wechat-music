@@ -3,6 +3,7 @@ function getPath(url, params) {
     if (params) {
         path += '?';
         for (let key in params) {
+            // key 是第一个参数时不需要 &
             if (Object.keys(params).indexOf(key) === 0) path += `${key}=${params[key]}`;
             else path += `&${key}=${params[key]}`;
         }

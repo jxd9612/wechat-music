@@ -28,6 +28,18 @@ module.exports = {
     getSong: ApiRootUrl + 'song/url',
 
     /**
+     * 获取歌曲详情
+     * ids(必选): 音乐 id
+     */
+    getSongDetail: ApiRootUrl + 'song/detail',
+
+    /**
+     * 获取歌词
+     * id(必选): 音乐 id
+     */
+    getLyric: ApiRootUrl + 'lyric',
+
+    /**
      * 搜索
      * keywords(必选): 关键词
      * limit: 返回数量 , 默认为 30 offset

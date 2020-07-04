@@ -17,16 +17,11 @@ Component({
         songId: {
             type: Number,
         },
-        // 歌曲状态
-        playStatus: {
-            type: Number,
-        },
     },
 
     // 组件的初始数据
     data: {
         desc: '',
-        status: false,
     },
 
     watch: {

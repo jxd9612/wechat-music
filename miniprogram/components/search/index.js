@@ -24,7 +24,16 @@ Component({
     },
 
     // 组件的初始数据
-    data: {},
+    data: {
+        flag: true, // 是否显示搜索建议 true-隐藏 | false-显示
+    },
+
+    watch: {
+        item(val) {
+            if (val.length === 0) this.setData({ flag: true });
+            else this.setData({ flag: false });
+        },
+    },
 
     // 组件的方法列表
     methods: {
@@ -34,8 +43,11 @@ Component({
         },
 
         inputBlur() {
-            if (!this.data.value) this.setData({ item: [] });
-            // this.triggerEvent('search');
+            this.setData({ flag: true });
+        },
+
+        inputFocus() {
+            if (this.data.value) this.setData({ flag: false });
         },
 
         search(ev) {

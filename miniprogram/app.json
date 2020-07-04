@@ -1,5 +1,5 @@
 {
-    "pages": ["pages/index/index", "pages/search/search", "pages/playList/playList"],
+    "pages": ["pages/index/index", "pages/playMusic/playMusic", "pages/search/search", "pages/playList/playList"],
     "window": {
         "backgroundColor": "#fff",
         "backgroundTextStyle": "light",

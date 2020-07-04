@@ -1,3 +1,5 @@
+const musicManage = wx.getBackgroundAudioManager();
+
 App({
     onLaunch: function () {
         if (!wx.cloud) {
@@ -12,10 +14,24 @@ App({
                 traceUser: true,
             });
         }
+        this.watchMusicStatus();
+    },
+
+    watchMusicStatus() {
+        musicManage.onPlay(() => {
+            this.globalData.playStatus = 1;
+        });
+        musicManage.onPause(() => {
+            this.globalData.playStatus = 2;
+        });
+        musicManage.onStop(() => {
+            this.globalData.playStatus = 0;
+        });
     },
 
     globalData: {
         playStatus: 0, // 音乐播放状态，0-停止 | 1-播放 | 2-暂停
         songId: 0, // 当前播放歌曲的 Id
+        playMusicInfo: {}, // playMusic 暂存数据
     },
 });
